@@ -1,9 +1,9 @@
 //
 //  Constant.swift
-//  WorkoutDemo
+//  My Workouts
 //
-//  Created by Amit Kajwani on 28/11/19.
-//  Copyright © 2019 Vishal Patel. All rights reserved.
+//  Created by Feliks Titov on 27.05.2023.
+//  Copyright © 2023 Vishal Patel. All rights reserved.
 //
 
 import UIKit

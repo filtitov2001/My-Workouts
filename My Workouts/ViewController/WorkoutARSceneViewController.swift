@@ -51,6 +51,8 @@ class WorkoutARSceneViewController: UIViewController, ARSCNViewDelegate {
     
     // MARK: - Setup
     func setup() {
+        view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = false
         // Set delegate
         sceneView.delegate = self
         sceneView.automaticallyUpdatesLighting = true

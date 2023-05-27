@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
+import FirebaseFirestore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,12 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        FirebaseApp.configure()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        if Auth.auth().currentUser != nil {
+            window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        } else {
+            window?.rootViewController = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController()
+        }
+        
+        
+        window?.makeKeyAndVisible()
         // Override point for customization after application launch.
         
         // Set navigation bar appearance
-        UINavigationBar.appearance().backgroundColor = UIColor.black
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().shadowImage = UIImage()
+//        UINavigationBar.appearance().backgroundColor = UIColor.systemBackground
+//        UINavigationBar.appearance().isTranslucent = false
+//        UINavigationBar.appearance().shadowImage = UIImage()
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: CustomFont.nexaBold, size: 17.0)!, NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         return true
     }
